@@ -1,6 +1,7 @@
 <template>
   <div class="home test aspect-box">
     <svg-icon icon-class="save" class="vm mr5"></svg-icon>
+    asdsadsad
   </div>
 </template>
 

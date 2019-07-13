@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
+import './permission.js'
 import router from '@/router'
 import store from '@/store/store'
 import 'normalize.css/normalize.css'
