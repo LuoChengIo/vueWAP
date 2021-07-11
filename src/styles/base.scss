@@ -181,179 +181,58 @@ a {
 .lhp2 {
     line-height: 2;
 }
+// 空间辅助类， 例如 p-l-10 ->  padding-left: 10px
+$spacers: (
+  m: margin,
+  p: padding,
+);
+$directions: (
+  t: top,
+  r: right,
+  b: bottom,
+  l: left,
+);
+$sizes: 0 1 2 3 4 5 10 15 20 25 30 40 50;
 
-/* margin */
-.m0 {
-    margin: 0 !important;
+@each $k, $v in $spacers {
+  @each $kk, $vv in $directions {
+    @each $kkk in $sizes {
+      .#{$k}-#{$kk}-#{$kkk} {
+        #{$v}-#{$vv}: $kkk * 1px !important;
+      }
+    }
+  }
 }
 
-.m20 {
-    margin: 20px;
+// 颜色辅助类, 例如 bg-success ->  background-color: 成功主题色变量
+$color-types: (
+  dark: $title-color,
+  secondary: $color-secondary,
+  success: $color-success,
+  warning: $color-warning,
+  danger: $color-danger,
+  info: $color-info,
+  theme: $theme-color,
+);
+$appearances: (
+  text: color,
+  bg: background-color,
+);
+@each $k, $v in $appearances {
+  @each $kk, $vv in $color-types {
+    .#{$k}-#{$kk} {
+      #{$v}: $vv !important;
+    }
+  }
 }
+// 字体辅助类, 例如 fz12 fz14
+$font-sizes: 0 12 13 14 15 16 17 18 19 20 22 24 26 28 30 32 36;
 
-.ml20 {
-    margin-left: 20px;
+@each $k in $font-sizes {
+  .fz#{$k} {
+    font-size: $k * 1px !important;
+  }
 }
-
-.mr20 {
-    margin-right: 20px;
-}
-
-.mt20 {
-    margin-top: 20px;
-}
-
-.mb20 {
-    margin-bottom: 20px;
-}
-
-.m30 {
-    margin: 30px;
-}
-
-.ml30 {
-    margin-left: 30px;
-}
-
-.mr30 {
-    margin-right: 30px;
-}
-
-.mt30 {
-    margin-top: 30px;
-}
-
-.mb30 {
-    margin-bottom: 30px;
-}
-
-/* padding */
-.p0 {
-    padding: 0 !important;
-}
-
-.p20 {
-    padding: 20px;
-}
-
-.pl20 {
-    padding-left: 20px;
-}
-
-.pr20 {
-    padding-right: 20px;
-}
-
-.pt20 {
-    padding-top: 20px;
-}
-
-.pb20 {
-    padding-bottom: 20px;
-}
-
-.p30 {
-    padding: 30px;
-}
-
-.pl30 {
-    padding-left: 30px;
-}
-
-.pr30 {
-    padding-right: 30px;
-}
-
-.pt30 {
-    padding-top: 30px;
-}
-
-.pb30 {
-    padding-bottom: 30px;
-}
-
-/* 文本颜色 */
-.text-primary {
-    color: $primary;
-}
-
-.text-secondary {
-    color: $secondary;
-}
-
-.text-success {
-    color: $success;
-}
-
-.text-danger {
-    color: $danger;
-}
-
-.text-warning {
-    color: $warning;
-}
-
-.text-info {
-    color: $info;
-}
-
-.text-light {
-    color: $light;
-}
-
-.text-dark {
-    color: $dark;
-}
-
-.text-white {
-    color: $white;
-}
-
-.c666 {
-    color: #666;
-}
-
-.bg-white {
-    background-color: #fff;
-}
-
-/* font-size */
-.f0 {
-    font-size: 0 !important;
-}
-
-.f20 {
-    font-size: 20px;
-}
-
-.f24 {
-    font-size: 24px;
-}
-
-.f28 {
-    font-size: 28px;
-}
-
-.f30 {
-    font-size: 30px;
-}
-
-.f32 {
-    font-size: 32px;
-}
-
-.f34 {
-    font-size: 34px;
-}
-
-.f36 {
-    font-size: 36px;
-}
-
-.f42 {
-    font-size: 32px;
-}
-
 /* font-style */
 .n {
     font-weight: normal;
@@ -627,7 +506,72 @@ a.udl-h:hover {
     pointer-events: none;
 }
 
-
+/* flex */
+.flex {
+    display: flex;
+  }
+  .flex-column {
+    flex-direction: column;
+  }
+  .flex-wrap {
+    flex-wrap: wrap;
+  }
+  .flex-nowrap {
+    flex-wrap: nowrap;
+  }
+  .flex-1 {
+    flex: 1;
+  }
+  .flex-fill {
+    flex: 1 1 auto;
+  }
+  .flex-grow-1 {
+    flex-grow: 1;
+  }
+  .flex-shrink-0 {
+    flex-shrink: 0;
+  }
+  .justify-content-center {
+    justify-content: center;
+  }
+  .justify-content-between {
+    justify-content: space-between;
+  }
+  .justify-content-around {
+    justify-content: space-around;
+  }
+  .justify-content-end {
+    justify-content: flex-end;
+  }
+  .align-items-center {
+    align-items: center;
+  }
+  .align-items-start {
+    align-items: flex-start;
+  }
+  .align-items-end {
+    align-items: flex-end;
+  }
+  .align-self-center {
+    align-self: center;
+  }
+  .align-self-end {
+    align-self: flex-end;
+  }
+  .flex-column {
+    display: flex;
+    flex-direction: column;
+  }
+  .flex-column-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .flex-row-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
 /*=============================================
 =            功能样式            =
