@@ -37,7 +37,7 @@
     "eslint-plugin-html": "^5.0.0",
     "eslint-plugin-vue": "^5.0.0-0",
     "mockjs": "^1.0.1-beta3",
-    "node-sass": "^4.9.0",
+    "node-sass": "^7.0.0",
     "normalize.css": "^8.0.1",
     "postcss-aspect-ratio-mini": "^1.0.1",
     "postcss-pxtorem": "^4.0.1",
